@@ -1,3 +1,9 @@
+ssh -p2220 -i /home/bandit13/sshkey.private bandit14@bandit.labs.overthewire.org 
+- "ssh" to initiate the ssh connection
+- "-p2220" spesifies the port to be used, ssh automatically uses -p22
+- "-i /home/bandit13/sshkey.private" spesifies the private key file to be used for authentication
+- "bandit14@bandit.labs.overthewire.org" the username@hostname you want to connect to
+
 echo "JQttfApK4SeyHwDlI9SXGR50qclOAil1" | openssl s_client -connect localhost:31046 -ign_eof
 - sends a string to SSL/TLS-enabled service running on localhost and listening on port 31046
 - "echo" outputs the spesified string
