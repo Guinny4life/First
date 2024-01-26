@@ -29,4 +29,6 @@ dxviW8+TFVEBl1O4f7HVm6EpTscdDxU+bCXWkfjuRb7Dy9GOtt9JPsX8MBTakzh3
 vBgsyi/sN3RqRBcGU40fOoZyfAMT8s1m/uYv52O6IgeuZ/ujbjY=
 -----END RSA PRIVATE KEY-----
 
-Now lets to level 13 again
+Now lets to level 13 again -DONE
+latest command ssh -p2220 -i /home/bandit16/tmp/bryan/bandit17.sshkey bandit17@bandit.labs.overthewire.org
+
