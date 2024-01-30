@@ -4,7 +4,7 @@ ssh -p2220 -i /home/bandit13/sshkey.private bandit14@bandit.labs.overthewire.org
 - "-i /home/bandit13/sshkey.private" spesifies the private key file to be used for authentication
 - "bandit14@bandit.labs.overthewire.org" the username@hostname you want to connect to
 
-BANDIT 16
+                                   BANDIT 16
 nmap -p 31000-32000 --open --script ssl-enum-ciphers localhost
 -"nmap" scan a range of ports and services used
 -"-p 31000-32000" range of ports to scan
@@ -19,4 +19,12 @@ echo "JQttfApK4SeyHwDlI9SXGR50qclOAil1" | openssl s_client -connect localhost:31
 - "openssl s_client" tests and interacts with SSL/TLS 
 - "-ign_eof" instructs "openssl s_client" to continue reading from the server even if the end of file (EOF) is encountered. Used when additional input is expected after the initial connection.
 
-nano 
+mkdir /tmp/bryan1
+- "mkdir" makes a directory 
+- "/tmp/bryan1" makes a temporary file
+
+nano bandit17
+- is a text editor 
+
+
+
