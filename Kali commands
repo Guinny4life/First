@@ -19,4 +19,4 @@ echo "JQttfApK4SeyHwDlI9SXGR50qclOAil1" | openssl s_client -connect localhost:31
 - "openssl s_client" tests and interacts with SSL/TLS 
 - "-ign_eof" instructs "openssl s_client" to continue reading from the server even if the end of file (EOF) is encountered. Used when additional input is expected after the initial connection.
 
-
+nano 
