@@ -26,5 +26,7 @@ mkdir /tmp/bryan1
 nano bandit17
 - is a text editor 
 
+chmod 600 
+- 
 
 
