@@ -4,7 +4,7 @@ ssh -p2220 -i /home/bandit13/sshkey.private bandit14@bandit.labs.overthewire.org
 - "-i /home/bandit13/sshkey.private" spesifies the private key file to be used for authentication
 - "bandit14@bandit.labs.overthewire.org" the username@hostname you want to connect to
 
-                                   BANDIT 16
+                                                                                    BANDIT 16
 nmap -p 31000-32000 --open --script ssl-enum-ciphers localhost
 -"nmap" scan a range of ports and services used
 -"-p 31000-32000" range of ports to scan
@@ -28,5 +28,11 @@ nano bandit17
 
 chmod 600 bandit17key
 - changes a files permisions, 6 is owners permisions 4 + 2 so read and write, 0 is group permisions, 0 is others permisions (not owner nor in group)
+
+                                                                                        BANDIT 17
+diff passwords.new passwords.old
+- prints the lines that are different between the two txt files
+
+                                                                                    BANDIT 18
 
 
