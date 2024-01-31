@@ -26,7 +26,7 @@ mkdir /tmp/bryan1
 nano bandit17
 - is a text editor 
 
-chmod 600 
-- 
+chmod 600 bandit17key
+- changes a files permisions, 6 is owners permisions 4 + 2 so read and write, 0 is group permisions, 0 is others permisions (not owner nor in group)
 
 
