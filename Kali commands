@@ -36,7 +36,7 @@ diff passwords.new passwords.old
 - prints the lines that are different between the two txt files first first, second second
 
                                                                                   BANDIT 18
-ssh -p 2220 bandit18@bandit.labs.overthewire.org -t sh  
+ssh -p2220 bandit18@bandit.labs.overthewire.org -t sh  
 - "-t sh" execution of the Bourne Shell in a pseudo-terminal. This can be useful for troubleshooting, debugging, or running commands that require an interactive terminal environment.
 
 ssh -p2000 bandit18@bandit.labs.overthewire.org "cat ~/readme" 
