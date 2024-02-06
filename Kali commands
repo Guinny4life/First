@@ -42,8 +42,14 @@ ssh -p2220 bandit18@bandit.labs.overthewire.org -t sh
 ssh -p2000 bandit18@bandit.labs.overthewire.org "cat ~/readme" 
 - logs into server and immidiately cat file before it kicks me out due to a modified .bashrc
 
-BANDIT 19
- ./bandit20-do cat /etc/bandit_pass/bandit20
+                                                                                  BANDIT 19
+l -ls
+- shows us the binary setuid is set up. In this case, it will excecute somthing as the owner thanks to the "s" in the permisions
+
+./bandit20-do cat /etc/bandit_pass/bandit20
+- "./bandit20-do" is the binary setuid and will excecute with elevated permisions
+
+                                                                                  BANDIT 20
 
 
 
