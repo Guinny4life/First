@@ -1,0 +1,18 @@
+Powershell
+  get-content words.txt | sort | get-unique | measure-object  ###to count unique items
+
+  $filecontent = get-content words.txt
+  $matches = select-string -inputobject $filecontent -pattern "baag" -allmatches
+  $mathces.matches.count    ###to count how many times a parttern appears in a file
+
+CLASS notes day2 
+
+To make a new PS drive location 5.3
+new-psdrive -name Demo -psprovider Filesystem -root  c:\Demo
+cd C:\Demo
+new-psdrive -Name HKU -psprovider 
+
+Alternate data streams 
+get-item bad.txt -stream*
+###to read
+
