@@ -29,3 +29,4 @@ linux boot process
   cat /boot/grub/grub.cf                      ### see GRUB config
   cd /etc                                     ### lots of good files
   find /etc/rc*.d -name *ssh*                 ### finds the init.* levels
+  which init                                  ### locate the init command 
