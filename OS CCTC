@@ -20,4 +20,11 @@ get-item bad.txt -stream*
 
 linux
   regex101
-  
+
+linux boot process 
+  sudo dmidecode -t bios                      ###
+  lsblk                                       ### list info about block devices (hard drives, usb, partitions)
+  sudo xxd -l 512 -g 1 /dev/vda               ### examine MBR
+  dd if=/dev/vda of=MBRcopy bs=512 count=1     ### make a copy of MBR
+  cat /boot/grub/grub.cf                       ### see GRUB config
+  cd /etc                                      ### lots of good files
