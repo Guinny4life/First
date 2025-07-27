@@ -30,3 +30,4 @@ linux boot process
   cd /etc                                     ### lots of good files
   find /etc/rc*.d -name *ssh*                 ### finds the init.* levels
   which init                                  ### locate the init command 
+  find . -type f -print0 | xargs -0 wc -l | sort -nr | head ### lists biggest files with word count
