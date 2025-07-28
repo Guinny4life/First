@@ -7,6 +7,7 @@ Powershell
   $matches = select-string -inputobject $filecontent -pattern "baag" -allmatches
   $mathces.matches.count    ###to count how many times a parttern appears in a file
   get-service | where DisplayName -match "defender" ### grep
+  (get-command c:.....\scvhost.exe).Soruce ### find binary locatiom
 
 CLASS notes day2 
 
