@@ -35,21 +35,21 @@ linux boot process
   find . -type f -print0 | xargs -0 wc -l | sort -nr | head ### lists biggest files with word count
 
 System internals (windows)
-  ./autoruns ### very useful, has scheduled tasks, malware persistance locations in GUI
-  ./procexp ### shows details of processes running, investigates process
-  ./tcpview -accepteula ### shows network connection attemps
-  Psexec -s \\fileserver cmd.exe ### opens a window of another machine, its mirrored 
+  ./autoruns                       ### very useful, has scheduled tasks, malware persistance locations in GUI
+  ./procexp                       ### shows details of processes running, investigates process
+  ./tcpview -accepteula           ### shows network connection attemps
+  Psexec -s \\fileserver cmd.exe   ### opens a window of another machine, its mirrored 
     whoami
-  ./psloggedin ### see whos logged on
-  ./logonsessions ### seee whos logged on (better)
+  ./psloggedin                     ### see whos logged on
+  ./logonsessions                  ### seee whos logged on (better)
   ./pslist 
-  ./psinfo ## computer info on a domain
-  ./accesschk ### View permissions
-  strings -a c:....text.txt ### pulls human readable text
-  handle.exe -p PID# -accepteula ### View and modify handles
-  C:\Users\Public\Downloads ### default downloads directory all have access to
-  ./loadorder
-  ./listdlls ### reports .dlls loaded into processes
+  ./psinfo                         ### computer info on a domain
+  ./accesschk                     ### View permissions
+  strings -a c:....text.txt       ### pulls human readable text
+  handle.exe -p PID# -accepteula   ### View and modify handles
+  C:\Users\Public\Downloads        ### default downloads directory all have access to
+  ./loadord ls 
+  ./listdlls                       ### reports .dlls loaded into processes
   
 
 Process Validity
