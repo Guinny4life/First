@@ -31,3 +31,19 @@ linux boot process
   find /etc/rc*.d -name *ssh*                 ### finds the init.* levels
   which init                                  ### locate the init command 
   find . -type f -print0 | xargs -0 wc -l | sort -nr | head ### lists biggest files with word count
+
+System internals
+  ./autoruns ### very useful
+  ./procexp ### shows details of processes running
+  ./tcpview -accepteula
+  Psexec -s \\fileserver cmd.exe ### opens a window of another machine, its mirrored 
+    whoami
+  ./psloggedin ### see whos logged on
+  ./logonsessions ### seee whos logged on (better)
+  ./pslist 
+  ./psinfo ## computer info on a domain
+  strings -a c:....text.txt ### pulls human readable text
+  handle.exe -p PID# -accepteula
+
+Process Validity
+  
