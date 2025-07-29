@@ -66,3 +66,20 @@ Process Validity
 User access conrol
   ./sigcheck -m C:\Windows\System32\slui.exe ### shows which access level is needed
 
+Linux process validity
+  ps -lf                       ###shows running processes 
+  top                          ### realtime view of running process can edit view with f on main window, try shift+v
+  htop                         ### same as top but with F5 and F2 to exit esc
+  ps -ppid2 -Nlf               ###displays all eccept kthreadd processes 
+  ps -elf --forest
+  service <servicename> status/start/stop/restart     Check status/start/stop/restart a service on sysV
+  systemctl list-units --all                   List all units that systemd has loaded or attempted to load into memory, including those that are not currently active, add the --all switch:
+  systemctl status <servicename.service>
+  var/spool/cron, /etc/cron.d and the file /etc/crontab      ### the 3 locations where chron jobs are
+  crontab -l -u [user]                             ### This command will display/list user’s crontab contents
+  sudo lsof                                        ### List all open files being used by every process.
+
+
+  
+
+  
