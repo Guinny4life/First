@@ -79,7 +79,19 @@ Linux process validity
   crontab -l -u [user]                             ### This command will display/list user’s crontab contents
   sudo lsof                                        ### List all open files being used by every process.
 
-
+Linux logging daemons
+  journald and od syslog                                ###service stored in /var/log, config is /etc/rsyslog/
+  event(facility).path/to/log/location
+  /etc/logrotate.conf
+  last /var/log/auth.log(authentication)......var/run/utmp(users logged in rn)........var/log/wtmp(history).........*/var/log/btmp(failed login attemps)
+  /var/log/mysql.log                      ### aplicatiion logs
+  /var/log/syslog                         ### system
+    dmsg                                  ### first logs
+      Location: All logs are in /var, most are in /var/log
+      Config File: /etc/rsyslog.conf
+      Service: /usr/sbin/rsyslogd
   
 
+
+  
   
