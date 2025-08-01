@@ -90,8 +90,11 @@ Linux logging daemons
       Location: All logs are in /var, most are in /var/log
       Config File: /etc/rsyslog.conf
       Service: /usr/sbin/rsyslogd
-  
 
+Memory Analysis
+  PS C:\Users\andy.dwyer\Desktop\Memory_Analysis> .\volatility_2.6_win64_standalone.exe -h 
+  PS C:\Users\andy.dwyer\Desktop\Memory_Analysis> .\volatility_2.6_win64_standalone.exe -f <FILENAME> --profile=<PROFILE> <PLUGIN> 
+  PS C:\Users\andy.dwyer\Desktop\Memory_Analysis> .\volatility_2.6_win64_standalone.exe -f ".\cridex.vmem" imageinfo 
 
   
   
