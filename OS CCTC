@@ -96,5 +96,9 @@ Memory Analysis
   PS C:\Users\andy.dwyer\Desktop\Memory_Analysis> .\volatility_2.6_win64_standalone.exe -f <FILENAME> --profile=<PROFILE> <PLUGIN> 
   PS C:\Users\andy.dwyer\Desktop\Memory_Analysis> .\volatility_2.6_win64_standalone.exe -f ".\cridex.vmem" imageinfo 
 
-  
-  
+Active directory enumeration
+  Get-ADGroup -Filter *                 ###list domain groups 
+  Get-ADUser -Filter 'Name -like "*"'    ### list all users and default properties
+  search-adaccount -acountexpired          ###find expired accounts
+  get-aduser -filter * -properties mail | select-object name, mail | select-string -pattern "mail.mil" -notmatch          ###
+  get-aduser -filter * -properties *         ###everyproperty, everyuser
