@@ -102,3 +102,5 @@ Active directory enumeration
   search-adaccount -acountexpired          ###find expired accounts
   get-aduser -filter * -properties mail | select-object name, mail | select-string -pattern "mail.mil" -notmatch          ###
   get-aduser -filter * -properties *         ###everyproperty, everyuser
+
+encryption ROT13
