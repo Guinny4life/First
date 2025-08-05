@@ -104,3 +104,9 @@ Active directory enumeration
   get-aduser -filter * -properties *         ###everyproperty, everyuser
 
 encryption ROT13
+
+linux persistance mechenisms
+  systemd, cron, init scripts (systemv init and rc.d), login scripts (.bashrc, .profile), ~/.ssh/authorized_keys
+  systemctl list-units --all      ###lists all systemd units
+
+  
