@@ -109,4 +109,73 @@ linux persistance mechenisms
   systemd, cron, init scripts (systemv init and rc.d), login scripts (.bashrc, .profile), ~/.ssh/authorized_keys
   systemctl list-units --all      ###lists all systemd units
 
+important for test (windows process validity)(use windows auditing and loggin)
+not: uac, memory analysis, active directory, alternate data streams, auditng and logging, 
+use autoruns
+
+in powershell persistance: profiles setting up programs to auto run, they are scritps, loads when PS runs.
+Runkeys (windows) run and runonce hklm hkcu, use regedit
+Scheduled tasks (WINDOWS), get-service 
+Cron (linux), /etc/crontab, /etc/cron.d, /var/spool/cron
+/etc/profile a bash script
+bash.rc 
+bash.profile
+/etc/init.d
+systemd.conf
+/etc/init
+/etc/omottab
+/etc/rc*.d
+
+post boot
+/usr/lib/systemd/system
+
+get-process, get-service, get-ciminstance, get-net
+
+
+netstat, ps -elf, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
