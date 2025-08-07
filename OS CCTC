@@ -116,7 +116,7 @@ use autoruns
 in powershell persistance: profiles setting up programs to auto run, they are scritps, loads when PS runs.
 Runkeys (windows) run and runonce hklm hkcu, use regedit
 Scheduled tasks (WINDOWS), get-service 
-Cron (linux), /etc/crontab, /etc/cron.d, /var/spool/cron
+Cron (linux), /etc/crontab, /etc/cron.d, /var/spool/cron/crontabs
 /etc/profile a bash script
 bash.rc 
 bash.profile
