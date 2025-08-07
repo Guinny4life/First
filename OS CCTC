@@ -134,7 +134,7 @@ get-process, get-service, get-ciminstance, get-net
 
 netstat, ps -elf, 
 
-
+test ip 10.50.16.146
 
 
 
