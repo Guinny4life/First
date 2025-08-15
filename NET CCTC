@@ -89,8 +89,10 @@ CURL and WGET                                                 Display ascii from
         wget -r http://172.16.82.106
         wget -r ftp://172.16.82.106
         wget -r ftp://172.16.82.106 --user=student --password=password
-
-
+sudo nmap -sN -T4 IP ###scan for hosts
+nmap -p- --open IP ### scan for ports
+echo "GET /" | nc 172.16.182.110 80 ###interfaces with a web sevice on host
+nmap -sT -p U:198-200 IP
 
 
 
