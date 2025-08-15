@@ -38,3 +38,60 @@ IPv4 offset Calc: Offset = (MTU - (IHLx4))/8          MTU(ipv4 header, TCP heade
 OS finger printing 2.1.1.5
 ICMPv4 protocol and headerr structure 2.1.1.7
 IPv6 packet header: 2.1.2.2
+
+Day 5
+> whois zonetransfer.me 
+> dig zonetransfer.meAAAA
+> dir axfr {@soa.server} {target-site}
+> dig axfr @nsztm1.digi.ninja zonetransfer.me
+
+p0f: Passive scanning of network traffic and packet captures.
+more /etc/p0f/p0f.fp
+sudo p0f -i eth0
+sudo p0f -r test.pcap
+
+for i in {1..254}; do (ping -c 1 172.16.82.$i | grep "bytes from" &) ; done ### ping a range
+nmap 6.5.3.2
+
+###NETCAT horizontal scanning
+TCP for i in {1..254}; do nc -nvzw1 172.16.82.$i 20-23 80 2>&1 & done | grep -E 'succ|open'
+UDP for i in {1..254}; do nc -nuvzw1 172.16.82.$i 1000-2000 2>&1 & done | grep -E 'succ|open'
+###Netcat - Vertical Scanning
+TCP  nc -nzvw1 172.16.82.106 21-23 80 2>&1 | grep -E 'succ|open'
+UDP nc -nuzvw1 172.16.82.106 1000-2000 2>&1 | grep -E 'succ|open'
+
+netcat tcp scan script                                                        netcat TCP scan script
+          #!/bin/bash
+          echo "Enter network address (e.g. 192.168.0): "                                      
+          read net
+          echo "Enter starting host range (e.g. 1): "
+          read start
+          echo "Enter ending host range (e.g. 254): "
+          read end
+          echo "Enter ports space-delimited (e.g. 21-23 80): "
+          read ports
+          for ((i=$start; i<=$end; i++))                                            for ((i=$start; i<=$end; i++))
+          do
+              nc -nvzw1 $net.$i $ports 2>&1 | grep -E 'succ|open' &                      nc -nuvzw1 $net.$i $ports 2>&1 | grep -E 'succ|open' &
+          done
+          wait
+NETCAT banner grabbing
+        nc [Target IP] [Target Port]
+        nc 172.16.82.106 22
+        nc -u 172.16.82.106 53     (UDP)
+CURL and WGET                                                 Display ascii from destination
+        curl http://172.16.82.106
+        curl http://172.16.82.106 -o output.txt
+        curl ftp://172.16.82.106
+        curl ftp://172.16.82.106 -u student:password
+        curl ftp://172.16.82.106/file.txt -o output.txt
+        wget http://172.16.82.106                             downloads
+        wget -r http://172.16.82.106
+        wget -r ftp://172.16.82.106
+        wget -r ftp://172.16.82.106 --user=student --password=password
+
+
+
+
+
+
