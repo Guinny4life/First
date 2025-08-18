@@ -131,20 +131,26 @@ Can vary in sizes of payloads
 Typically "bursty" but not steady
 
 SSH options -L  -D  -R  -NT
-local port porward: ssh user@IP -L BindLocalPort:tgtIP:tgtPort -NT
+local port porward: 
+ssh user@IP -L BindLocalPort:tgtIP:tgtPort -NT
 ssh user@127.0.0.1 -p BindLocalPort
 
 tunnel in a tunnel
 ssh student@127.0.0.1 -p BindLocalPort -L 1112:tgtIP2:tgtPort2
 ssh student@127.0.0.1 -p 1112
+wget -r http://localhost:1112 (for a local tunnel)
 
 To use TCP tools in a tunnel (use proxy chains)
 ssh student@127.0.0.1 -p 1112 -D 9050 -NT
 proxychains nmap 10.10.0.1/28(network in end of tunnel) -p 21-23,80
 proxychains wget -r http://10.10.0.2 (thru tunnel to wget in a port 80, can use ftp)
 
-to the inital Float IP 
+Dynamic 1 step 
 ssh student@172.16.1.15 -D 9050 2>/dev/null
+Dynamic 2 step
+ssh student@172.16.1.15 -L 2222:172.16.40.10:22
+ssh student@localhost -p 2222 -D 9050 2>/dev/null
+proxychains wget -r http://nexjump
 
 Remote Port Forwarding
 IH>telnet BH1
