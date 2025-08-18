@@ -133,3 +133,7 @@ Typically "bursty" but not steady
 SSH options -L  -D  -R  -NT
 local port porward: ssh user@IP -L BindLocalPort:tgtIP:tgtPort -NT
 ssh user@127.0.0.1 -p BindLocalPort
+
+tunnel in a tunnel
+ssh student@127.0.0.1 -p BindLocalPort -L 1112:tgtIP2:tgtPort2
+ssh student@127.0.0.1 -p 1112
