@@ -94,6 +94,9 @@ nmap -p- --open IP ### scan for ports
 echo "GET /" | nc 172.16.182.110 80 ###interfaces with a web sevice on host
 nmap -sT -p U:198-200 IP
 
+Day 6 fle tranfser
 
-
-
+scp syntax 
+scp student@172.16.82.106:secretstuff.txt /home/student ###download
+scp secretstuff.txt student@172.16.82.106:/home/student ###upload
+scp -3 student@172.16.82.106:/home/student/secretstuff.txt student@172.16.82.112:/home/student ###copy a file from a remote host to another
