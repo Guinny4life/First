@@ -137,3 +137,8 @@ ssh user@127.0.0.1 -p BindLocalPort
 tunnel in a tunnel
 ssh student@127.0.0.1 -p BindLocalPort -L 1112:tgtIP2:tgtPort2
 ssh student@127.0.0.1 -p 1112
+
+To use TCP tools in a tunnel (use proxy chains)
+ssh student@127.0.0.1 -p 1112 -D 9050 -NT
+proxychains nmap 10.10.0.1/28(network in end of tunnel) -p 21-23,80
+proxychains wget -r http://10.10.0.2 (thru tunnel to wget in a port 80, can use ftp)
