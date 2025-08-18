@@ -161,3 +161,23 @@ Remote Port Forwarding even further into network
 IH>telnet BH2
 BH2>ssh student@BH1 -R 21199:127.0.0.1:22 -NT
 IH> ssh student@BH2 -L 21101:LH:21199
+
+Checking ports with proxyxhains
+proxychains nc IP port
+
+step by step to tunnel
+nmap -sT -T4 10.50.176.142 -p 21-23,80
+wget -r http://10.50.176.142
+wget -r ftp://10.50.176.142
+ssh Aang@192.168.1.39
+ssh Sokka@10.50.176.142 -L 21101:192.168.1.39:22 -NT
+ssh Sokka@127.0.0.1 -p 21101
+    1  whoami
+    2  ip a
+    3  netstat -antop 
+    4  arp
+    5  ip neighbor
+    6  cd /usr/share/cctc
+    7  ls
+
+
