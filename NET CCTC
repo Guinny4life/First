@@ -100,3 +100,10 @@ scp syntax
 scp student@172.16.82.106:secretstuff.txt /home/student ###download
 scp secretstuff.txt student@172.16.82.106:/home/student ###upload
 scp -3 student@172.16.82.106:/home/student/secretstuff.txt student@172.16.82.112:/home/student ###copy a file from a remote host to another
+
+How to make a pipe from a host sending to a port, and getting that pipe to us
+(middle)
+mknod mypipe
+nc -lvp 4321 < mypipe | nc -lvp 1111 > mypipe
+(host receiving)
+nc (middle IP & 1111) > .txt
