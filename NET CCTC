@@ -107,3 +107,29 @@ mknod mypipe
 nc -lvp 4321 < mypipe | nc -lvp 1111 > mypipe
 (host receiving)
 nc (middle IP & 1111) > .txt
+
+TUNNELS
+detecing covert channels with imcp: ICMP works with one request and one reply answer
+Type 8 code 0 request
+Type 0 code 0 answer
+Check for:
+Payload imbalance
+Request/response imbalance
+Large payloads in response
+
+Detecting Covert Channels with DNS: DNS is a request/response protocol
+1 request typically gets 1 response
+Payloads generally do not exceed 512 bytes
+Check for:
+Request/response imbalances
+Unusual payloads
+Burstiness or continuous use
+
+Detecting Covert Channels with HTTP: Request/Response protocol to pull web content
+GET request may include .png, .exe, .(anything) files
+Can vary in sizes of payloads
+Typically "bursty" but not steady
+
+SSH options -L  -D  -R  -NT
+local port porward: ssh user@IP -L BindLocalPort:tgtIP:tgtPort -NT
+ssh user@127.0.0.1 -p BindLocalPort
