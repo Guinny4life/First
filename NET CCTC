@@ -142,3 +142,16 @@ To use TCP tools in a tunnel (use proxy chains)
 ssh student@127.0.0.1 -p 1112 -D 9050 -NT
 proxychains nmap 10.10.0.1/28(network in end of tunnel) -p 21-23,80
 proxychains wget -r http://10.10.0.2 (thru tunnel to wget in a port 80, can use ftp)
+
+to the inital Float IP 
+ssh student@172.16.1.15 -D 9050 2>/dev/null
+
+Remote Port Forwarding
+IH>telnet BH1
+BH1>ssh student@IHExternalP -R 21199:127.0.0.1:22 
+IH>ssh student@127.0.0.1 -p 21999 (test)
+
+Remote Port Forwarding even further into network
+IH>telnet BH2
+BH2>ssh student@BH1 -R 21199:127.0.0.1:22 -NT
+IH> ssh student@BH2 -L 21101:LH:21199
