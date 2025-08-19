@@ -96,6 +96,13 @@ nmap -sT -p U:198-200 IP
 
 Day 6 fle tranfser
 
+Named Pipes
+mknod pipe p
+(listener to client)
+(sender) nc IP 1111 < .txt
+nc -lvp 1111 < mypipe | nc 192.168.1.10 3333 > mypipe (on relay)
+(receiver) nc -lvp 3333 
+
 scp syntax 
 scp student@172.16.82.106:secretstuff.txt /home/student ###download
 scp secretstuff.txt student@172.16.82.106:/home/student ###upload
@@ -165,10 +172,33 @@ IH> ssh student@BH2 -L 21101:LH:21199
 Checking ports with proxyxhains
 proxychains nc IP port
 
-step by step to tunnel
+SSSSSSSSSSSSStep by step to tunnel Rick and Morty
 nmap -sT -T4 10.50.176.142 -p 21-23,80
+nc 10.50.176.142 23 (verify its telnet)
 wget -r http://10.50.176.142
 wget -r ftp://10.50.176.142
+oeg .png
+telnet 10.50.176.142
+RICK>netstat -antop (to see whats open)
+ip a (to see network)
+arp
+Rick>ssh student@MyFloatIP -R 1111:127.0.0.1:22 -NT (remote host)
+IH> ssh Rick@172.0.0.1 -p 1111 (to check tunnel)
+ssh Rick@127.0.0.1 -p 1111 -D 9050 -NT
+(new terminal)
+proxychains nmap -sT -T4 10.1.2.17/28 21-23,80
+proxychains wget
+proxychains nmap -sT -T4 10.1.2.18 
+nc ( to verify)
+ssh Rick@127.0.0.1 -p 1111 -L 1112:10.1.2.18:2222(the target port we found open on morty)
+ssh morty@127.0.0.1 -p 2222 (verify morty tunnel)
+ip a, 
+
+
+IH> ssh Morty@127.0.0.1 -p 2222 -L 3333:172.16.10.121:2323
+IH> ssh Jerry@127.0.0.1 -p 3333:192.168.10.69:22
+IH> 
+
 ssh Aang@192.168.1.39
 ssh Sokka@10.50.176.142 -L 21101:192.168.1.39:22 -NT
 ssh Sokka@127.0.0.1 -p 21101
@@ -180,4 +210,16 @@ ssh Sokka@127.0.0.1 -p 21101
     6  cd /usr/share/cctc
     7  ls
 
+Content of interest:
+/etc/passwd and /etc/shadow or SAM database
+Configuration files
+Log files
+Backup files
+Test pages
+Client-side code
+Passive external discovery:
 
+Passive External discovery:
+whois, dig
+
+Active external discovery:
