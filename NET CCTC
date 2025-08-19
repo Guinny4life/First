@@ -173,7 +173,7 @@ Checking ports with proxyxhains
 proxychains nc IP port
 
 SSSSSSSSSSSSStep by step to tunnel Rick and Morty
-          nmap -sT -T4 10.50.176.142 -p 21-23,80
+          nmap -sT -T4 -Pn 10.50.176.142 -p 21-23,80
           nc 10.50.176.142 23 (verify its telnet)
           wget -r http://10.50.176.142
           wget -r ftp://10.50.176.142
