@@ -2,97 +2,88 @@ User name: Iavinia.bartoletti-kihn      Class ID: NET-MAIT-25-021
 Password: Iavinia.bartoletti-kihn!
 
 
-Day 1 
-IETF - RFCs ( standard, infomation, expirimental, historic)
-1.2.1.5 Base64
+Packet Headers 
+          IPv4 packet header: 2.1.1.2
+          IPv4 addresses : public, Private, Loopback, linklocal (APIPA), Multicast
+          IPv4 offset Calc: Offset = (MTU - (IHLx4))/8          MTU(ipv4 header, TCP header, MSS,)46-1500 bytes    Example in 2.1.1.4 with vulnerability
+          OS finger printing 2.1.1.5
+          ICMPv4 protocol and headerr structure 2.1.1.7
+          IPv6 packet header: 2.1.2.2
 
-Network Speed	Bit Time (ns)
-10 Mbps	      100,000 ns (0.1 ms)
-100 Mbps	    10,000 ns (10 µs)
-1 Gbps	      1,000 ns (1 µs)
-2.5 Gbps	    400 ns
-5 Gbps	      200 ns
-10 Gbps	      100 ns
-25 Gbps	      40 ns
-40 Gbps	      25 ns
-100 Gbps	    10 ns
+Network Reconnasance 
+          > whois zonetransfer.me 
+          > dig zonetransfer.meAAAA
+          > dir axfr {@soa.server} {target-site}
+          > dig axfr @nsztm1.digi.ninja zonetransfer.me
+          
+          p0f: Passive scanning of network traffic and packet captures.
+          more /etc/p0f/p0f.fp
+          sudo p0f -i eth0
+          sudo p0f -r test.pcap
+          
+          for i in {1..254}; do (ping -c 1 172.16.82.$i | grep "bytes from" &) ; done ### ping a range
+          nmap 6.5.3.2
+          
+          ###NETCAT horizontal scanning
+          TCP for i in {1..254}; do nc -nvzw1 172.16.82.$i 20-23 80 2>&1 & done | grep -E 'succ|open'
+          UDP for i in {1..254}; do nc -nuvzw1 172.16.82.$i 1000-2000 2>&1 & done | grep -E 'succ|open'
+          ###Netcat - Vertical Scanning
+          TCP  nc -nzvw1 172.16.82.106 21-23 80 2>&1 | grep -E 'succ|open'
+          UDP nc -nuzvw1 172.16.82.106 1000-2000 2>&1 | grep -E 'succ|open'
+          
+          netcat tcp scan script                                                        netcat TCP scan script
+                    #!/bin/bash
+                    echo "Enter network address (e.g. 192.168.0): "                                      
+                    read net
+                    echo "Enter starting host range (e.g. 1): "
+                    read start
+                    echo "Enter ending host range (e.g. 254): "
+                    read end
+                    echo "Enter ports space-delimited (e.g. 21-23 80): "
+                    read ports
+                    for ((i=$start; i<=$end; i++))                                            for ((i=$start; i<=$end; i++))
+                    do
+                        nc -nvzw1 $net.$i $ports 2>&1 | grep -E 'succ|open' &                      nc -nuvzw1 $net.$i $ports 2>&1 | grep -E 'succ|open' &
+                    done
+                    wait
+          NETCAT banner grabbing
+                  nc [Target IP] [Target Port]
+                  nc 172.16.82.106 22
+                  nc -u 172.16.82.106 53     (UDP)
+                    (*There are nc scan scripts*)
+          CURL and WGET                                                 Display ascii from destination
+                  curl http://172.16.82.106
+                  curl http://172.16.82.106 -o output.txt
+                  curl ftp://172.16.82.106
+                  curl ftp://172.16.82.106 -u student:password
+                  curl ftp://172.16.82.106/file.txt -o output.txt
+                  wget http://172.16.82.106                             downloads
+                  wget -r http://172.16.82.106
+                  wget -r ftp://172.16.82.106
+                  wget -r ftp://172.16.82.106 --user=student --password=password
+          sudo nmap -sN -T4 IP ###scan for hosts                                          (deep research for the options if needed)
+          nmap -p- --open IP ### scan for ports
+          echo "GET /" | nc 172.16.182.110 80 ###interfaces with a web sevice on host
+          nmap -sT -p U:198-200 IP
+          
+          Traceroute firewalking if needed Tool: wget https://git.cybbh.space/cted/tech-college/cttsb/cctc/net/Net/-/raw/main/Resources/tr.py
 
-802.3 ethernet standards 
-802.11 wireless standards
-In a Frame MTU is 46-1500 bytes...
-Switching modes Cut through (speeds ahead), Fragment Free (makes sure it sends 64 bytes), Store and forward (waits for a complete frame)
-CAM table overflow attact - overflows BS macs to a switch
-MAC address formating: Windows 27-75-78-57-25-78, Unix 55:68:68:84:99:13, Cisco: 1234.5612.3456, first 6 HEX is OUI
-1.3.6 Describe the contents of an Ethernet header and frame
-18 byte header in data link layer, its VLAN traffic, 2 VLAN tags is VLAN hopping
-ARP (OP1 & 2), RARP(OP 3 & 4), Proxy ARP(OP2), Gratuitus ARP(OP2)
-MitM with ARP - poison ARP cache with gratitus ARP, and Proxy ARP
-Cisco Discover Protocol (CDP) Shares: Device ID (Hostname) IP Address, Port ID – (Interface Gig0/1.), Platform, Capabilities, Number and Type of Interfaces, IOS Software Version 
-Spanning tree protocol: prevents loops 
-1.3.15 Layer 2 Attack mitigation techniques: 
+          Content of interest:
+                    /etc/passwd and /etc/shadow or SAM database
+                    /usr/share/cctc
+                    Configuration files
+                    Log files
+                    Backup files
+                    Test pages
+                    Client-side code
 
-Class d 224-239 is multicasting
-IPv4 packet header: 2.1.1.2
-IPv4 addresses : public, Private, Loopback, linklocal (APIPA), Multicast
-IPv4 offset Calc: Offset = (MTU - (IHLx4))/8          MTU(ipv4 header, TCP header, MSS,)46-1500 bytes    Example in 2.1.1.4 with vulnerability
-OS finger printing 2.1.1.5
-ICMPv4 protocol and headerr structure 2.1.1.7
-IPv6 packet header: 2.1.2.2
-
-Day 5
-> whois zonetransfer.me 
-> dig zonetransfer.meAAAA
-> dir axfr {@soa.server} {target-site}
-> dig axfr @nsztm1.digi.ninja zonetransfer.me
-
-p0f: Passive scanning of network traffic and packet captures.
-more /etc/p0f/p0f.fp
-sudo p0f -i eth0
-sudo p0f -r test.pcap
-
-for i in {1..254}; do (ping -c 1 172.16.82.$i | grep "bytes from" &) ; done ### ping a range
-nmap 6.5.3.2
-
-###NETCAT horizontal scanning
-TCP for i in {1..254}; do nc -nvzw1 172.16.82.$i 20-23 80 2>&1 & done | grep -E 'succ|open'
-UDP for i in {1..254}; do nc -nuvzw1 172.16.82.$i 1000-2000 2>&1 & done | grep -E 'succ|open'
-###Netcat - Vertical Scanning
-TCP  nc -nzvw1 172.16.82.106 21-23 80 2>&1 | grep -E 'succ|open'
-UDP nc -nuzvw1 172.16.82.106 1000-2000 2>&1 | grep -E 'succ|open'
-
-netcat tcp scan script                                                        netcat TCP scan script
-          #!/bin/bash
-          echo "Enter network address (e.g. 192.168.0): "                                      
-          read net
-          echo "Enter starting host range (e.g. 1): "
-          read start
-          echo "Enter ending host range (e.g. 254): "
-          read end
-          echo "Enter ports space-delimited (e.g. 21-23 80): "
-          read ports
-          for ((i=$start; i<=$end; i++))                                            for ((i=$start; i<=$end; i++))
-          do
-              nc -nvzw1 $net.$i $ports 2>&1 | grep -E 'succ|open' &                      nc -nuvzw1 $net.$i $ports 2>&1 | grep -E 'succ|open' &
-          done
-          wait
-NETCAT banner grabbing
-        nc [Target IP] [Target Port]
-        nc 172.16.82.106 22
-        nc -u 172.16.82.106 53     (UDP)
-CURL and WGET                                                 Display ascii from destination
-        curl http://172.16.82.106
-        curl http://172.16.82.106 -o output.txt
-        curl ftp://172.16.82.106
-        curl ftp://172.16.82.106 -u student:password
-        curl ftp://172.16.82.106/file.txt -o output.txt
-        wget http://172.16.82.106                             downloads
-        wget -r http://172.16.82.106
-        wget -r ftp://172.16.82.106
-        wget -r ftp://172.16.82.106 --user=student --password=password
-sudo nmap -sN -T4 IP ###scan for hosts
-nmap -p- --open IP ### scan for ports
-echo "GET /" | nc 172.16.182.110 80 ###interfaces with a web sevice on host
-nmap -sT -p U:198-200 IP
+          Internal scans: 
+                    Netstat
+                    tasklists
+                    ip route
+                    find / -name flag* 2> /dev/null
+          Active internal discovery:
+                    Arp scan>nmap -sP -PR 172.16.82.96/27
 
 Day 6 fle tranfser
 
@@ -210,16 +201,8 @@ ssh Sokka@127.0.0.1 -p 21101
     6  cd /usr/share/cctc
     7  ls
 
-Content of interest:
-/etc/passwd and /etc/shadow or SAM database
-Configuration files
-Log files
-Backup files
-Test pages
-Client-side code
-Passive external discovery:
 
-Passive External discovery:
-whois, dig
+
+
 
 Active external discovery:
