@@ -167,13 +167,13 @@ Checking ports with proxyxhains
 proxychains nc IP port
 
 SSSSSSSSSSSSStep by step to tunnel Rick and Morty
-          nmap -sT -T4 -Pn 10.50.176.142 -p 21-23,80
+          nmap -sT -T4 -Pn 10.50.176.142 -p 21-23,80 (1000-10,000)
           nc 10.50.176.142 23 (verify its telnet)
           wget -r http://10.50.176.142
           wget -r ftp://10.50.176.142
           oeg .png
           telnet 10.50.176.142
-          RICK>netstat -antop (to see whats open)
+          RICK>netstat -antlp (to see whats open)
           ip a (to see network)
           arp
           Rick>ssh student@MyFloatIP -R 1111:127.0.0.1:22 -NT (remote host)
@@ -204,8 +204,36 @@ ssh Sokka@127.0.0.1 -p 21101
     6  cd /usr/share/cctc
     7  ls
 
+Network Analysis Day 7:
+          Ephemeral Ports
+                    IANA 49152–65535
+                    Linux 32768–60999
+                    Windows XP 1025–5000
+                    Win 7/8/10 use IANA
+                    Win Server 2008 1025–60000
+                    Sun Solaris 32768–65535
 
-
-
-
-Active external discovery:
+          Some Indicators
+                    .exe/executable files
+                    NOP sled
+                    Repeated Letters
+                    Well Known Signatures
+                    Mismatched Protocols
+                    Unusual traffic
+                    Large amounts of traffic/ unusual times
+                    Source IP/Domains
+                    Attempts to Disable or Evade Security Tools
+                    Off-Hours
+                    Network Scans
+                    Non-standard Port Usage
+                    Unusual Tasks or User Behaviors
+                    Phishing or Obfuscated Email Attachments
+                    Unauthorized Remote Logins
+                    Destination IP/Domains
+                    File Hashes of Malware
+                    Modified Registry Keys
+                    Excessive Email Use
+                    Suspicious DNS Requests
+                    Abnormal Use of Protocols
+                    Unexpected Internal Network Scanning
+                    Unexpected Outbound Traffic Volume
