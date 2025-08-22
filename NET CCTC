@@ -207,9 +207,13 @@ SSSSSSSSSSSSStep by step to tunnel Rick and Morty
                     Client-side code
 
           Internal scans: 
-                    Netstat
+                    Netstat -antlp or 
+                    ss 
                     tasklists
                     ip route
+                    ip a          
+                    arp
+                    
                     find / -name flag* 2> /dev/null
           Active internal discovery:
                     Arp scan>nmap -sP -PR 172.16.82.96/27
