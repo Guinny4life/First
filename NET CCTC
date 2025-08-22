@@ -71,6 +71,7 @@ Network Reconnasance
           Content of interest:
                     /etc/passwd and /etc/shadow or SAM database
                     /usr/share/cctc
+                    /etc/ssh/sshd_config
                     Configuration files
                     Log files
                     Backup files
