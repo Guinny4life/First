@@ -166,7 +166,7 @@ IH> ssh student@BH2 -L 21101:LH:21199
 
 Checking ports with proxyxhains
 proxychains nc IP port
-
+*************************************************************************************************************************
 SSSSSSSSSSSSStep by step to tunnel Rick and Morty
           nmap -sT -T4 -Pn 10.50.176.142 -p 21-23,80 (1000-10,000)
           nc 10.50.176.142 23 (verify its telnet)
@@ -195,6 +195,26 @@ SSSSSSSSSSSSStep by step to tunnel Rick and Morty
           IH> ssh Jerry@127.0.0.1 -p 3333:192.168.10.69:22
           IH> 
 
+
+           Content of interest:
+                    /etc/passwd and /etc/shadow or SAM database
+                    /usr/share/cctc
+                    /etc/ssh/sshd_config
+                    Configuration files
+                    Log files
+                    Backup files
+                    Test pages
+                    Client-side code
+
+          Internal scans: 
+                    Netstat
+                    tasklists
+                    ip route
+                    find / -name flag* 2> /dev/null
+          Active internal discovery:
+                    Arp scan>nmap -sP -PR 172.16.82.96/27
+
+**************************************************************************************************************************
 ssh Aang@192.168.1.39
 ssh Sokka@10.50.176.142 -L 21101:192.168.1.39:22 -NT
 ssh Sokka@127.0.0.1 -p 21101
