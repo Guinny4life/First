@@ -263,3 +263,5 @@ Network Analysis Day 7:
                     Abnormal Use of Protocols
                     Unexpected Internal Network Scanning
                     Unexpected Outbound Traffic Volume
+Network access controls
+SNORT rules: indtalation directory /etc/snort, config file /etc/snort/snort.conf, Ruels direcroty /etc/snort/rules
