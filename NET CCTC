@@ -214,6 +214,7 @@ SSSSSSSSSSSSStep by step to tunnel Rick and Morty
                     ip a          
                     arp
                     systemctl status ssh
+                    ip neighbor
                     
                     find / -name flag* 2> /dev/null
           Active internal discovery:
