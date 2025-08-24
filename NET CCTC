@@ -213,6 +213,7 @@ SSSSSSSSSSSSStep by step to tunnel Rick and Morty
                     ip route
                     ip a          
                     arp
+                    systemctl status ssh
                     
                     find / -name flag* 2> /dev/null
           Active internal discovery:
