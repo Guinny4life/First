@@ -215,6 +215,7 @@ SSSSSSSSSSSSStep by step to tunnel Rick and Morty
                     arp
                     systemctl status ssh
                     ip neighbor
+                    nc IP port (to verify what a port is)
                     
                     find / -name flag* 2> /dev/null
           Active internal discovery:
