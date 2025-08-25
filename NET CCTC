@@ -109,6 +109,7 @@ file tranfser day 6
           nc (middle IP & 1111) > .txt
 
           We can transfer files with base64
+          ftp IP (then hit >passive)
 
 TUNNELS
 detecing covert channels with imcp: ICMP works with one request and one reply answer
@@ -205,6 +206,7 @@ SSSSSSSSSSSSStep by step to tunnel Rick and Morty
                     Backup files
                     Test pages
                     Client-side code
+                    use whereis or which for enumeration commands, may need to use full path for command
 
           Internal scans: 
                     Netstat -antlp or 
