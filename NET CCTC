@@ -218,6 +218,8 @@ SSSSSSSSSSSSStep by step to tunnel Rick and Morty
                     systemctl status ssh
                     ip neighbor
                     nc IP port (to verify what a port is)
+
+                    tcpdump -i eth1 -A -c 10 "udp port 69" ( to sniff)
                     
                     find / -name flag* 2> /dev/null
           Active internal discovery:
