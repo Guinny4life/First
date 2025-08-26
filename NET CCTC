@@ -221,6 +221,7 @@ SSSSSSSSSSSSStep by step to tunnel Rick and Morty
 
                     tcpdump -i eth1 -A -v "udp port 69" ( to sniff)            tcpdump -i eth0 -A -v port 23
                     sudo iptables -t mangle -A POSTROUTING -j TTL --ttl-set 65 (change ttl)
+                    ftp IP (put into passive)
                     
                     
                     find / -name flag* 2> /dev/null
