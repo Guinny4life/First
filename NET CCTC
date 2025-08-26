@@ -219,7 +219,9 @@ SSSSSSSSSSSSStep by step to tunnel Rick and Morty
                     ip neighbor
                     nc IP port (to verify what a port is)
 
-                    tcpdump -i eth1 -A -v "udp port 69" ( to sniff)
+                    tcpdump -i eth1 -A -v "udp port 69" ( to sniff)            tcpdump -i eth0 -A -v port 23
+                    sudo iptables -t mangle -A POSTROUTING -j TTL --ttl-set 65 (change ttl)
+                    
                     
                     find / -name flag* 2> /dev/null
           Active internal discovery:
