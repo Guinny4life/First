@@ -230,6 +230,7 @@ SSSSSSSSSSSSStep by step to tunnel Rick and Morty
                     Arp scan>nmap -sP -PR 172.16.82.96/27
 
 echo "answer server-salt" | md5sum (all machines will have salt in home directories)
+echo "{starting password} {plaintext phrase}" | md5sum                               plaintext phrase will be discovered along the way
 
 **************************************************************************************************************************
 ssh Aang@192.168.1.39
