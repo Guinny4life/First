@@ -96,7 +96,7 @@ file tranfser day 6
           (receiver) nc -lvp 3333 
           
           scp syntax 
-                    scp (-P 1111) student@172.16.82.106:secretstuff.txt /home/student ###download
+                    scp (-P 1111) student@172.16.82.106:secretstuff.txt /home/student (or current working directory "." ) ###download
                     scp secretstuff.txt student@172.16.82.106:/home/student ###upload
                     scp -3 student@172.16.82.106:/home/student/secretstuff.txt student@172.16.82.112:/home/student ###copy a file from a remote host to another
                     We can SCP tru a Dynamic tunnel
