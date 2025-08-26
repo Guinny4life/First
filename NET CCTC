@@ -200,7 +200,7 @@ SSSSSSSSSSSSStep by step to tunnel Rick and Morty
            Content of interest:
                     /etc/passwd and /etc/shadow or SAM database
                     /usr/share/cctc
-                    /etc/ssh/sshd_config
+                    /etc/ssh/sshd_config | grep Port
                     Configuration files
                     Log files
                     Backup files
