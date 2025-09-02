@@ -36,3 +36,18 @@ favriout site for vulnerabilites: exploit-db, google the CVE # with github.
 
 ##Verify ports
   proxychains nc 192.168.28.100 80
+
+##set up port forwarding 
+  ssh -S /tmp/jump jump -O forward -L 1111:192.168.28.100:80 -L 1112:192.168.28.100:2222 -L 2111:192.168.28.105:2222                
+
+## To delete one local port forward
+  ssh -S /tmp/jump jump -O cancle -L 2111:192.168.28.105:2222
+
+##Navigate to webserver on Firefox
+  127.0.0.1:1111
+
+##########################
+## Authenticate to new system
+  ssh -MS /tmp/t1 username@127.0.0.1 -p 1112
+  man
+
