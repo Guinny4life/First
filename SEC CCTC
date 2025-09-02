@@ -1,7 +1,7 @@
 First day, day one! Let's get this started, I can type with out looking at the keyboard. Oops I missed spelled without, like why is it just one word. 
 
 Getting on to
-ssh demo1@10.50.15.172 -L 1111:10.208.50.61:80
+ssh demo1@10.50.15.172 -L 1111:10.208.50.61:80 for Challenges???
                                         .42   
 127.0.0.1:1111/classinfo.html
 
@@ -13,6 +13,26 @@ mol PW:WhyrightNow
 favriout site for vulnerabilites: exploit-db, google the CVE # with github.
 
 
+        OP NOTES
 ##Control Sockets
   ssh -MS /tmp/jump/ student@10.50.16.164        (M is multiplexing, to connect to multiple systems, S is socket created in /tmp directory)
-  
+##ping sweep from jump box
+  for i in {97..126}; do (ping -c 1 192.168.28.$i | grep "bytes from" &); done       from jump box we can only pingsweep
+##Create Dynamic port forward
+  ssh -S /tmp/jump jump -O forward -D9050
+            Nmap scan report for 192.168.28.100            
+            80/tcp   open  http
+            2222/tcp open  EtherNetIP-1
+            
+            Nmap scan report for 192.168.28.105
+            21/tcp   open  ftp
+            23/tcp   open  telnet
+            2222/tcp open  EtherNetIP-1
+            
+            Nmap scan report for 192.168.28.111
+            80/tcp   open  http
+            2222/tcp open  EtherNetIP-1
+            8080/tcp open  http-proxy
+
+##Verify ports
+  proxychains nc 192.168.28.100 80
