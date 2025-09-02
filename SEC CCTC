@@ -13,30 +13,35 @@ mol PW:WhyrightNow
 favriout site for vulnerabilites: exploit-db, google the CVE # with github.
 
 
+
         OP NOTES
 ##Control Sockets
   ssh -MS /tmp/jump/ student@10.50.16.164        (M is multiplexing, to connect to multiple systems, S is socket created in /tmp directory)
 
 ##ping sweep from jump box
   for i in {97..126}; do (ping -c 1 192.168.28.$i | grep "bytes from" &); done       from jump box we can only pingsweep
-
+                                                                                                                                                          .97, .100, .105, .111, .120
 ##Create Dynamic port forward
   ssh -S /tmp/jump jump -O forward -D9050
   (Later:  ssh -S /tmp/jump jump -O cancle -D9050)
   nmap
-            Nmap scan report for 192.168.28.100            
-            80/tcp   open  http
-            2222/tcp open  EtherNetIP-1
-            
-            Nmap scan report for 192.168.28.105
-            21/tcp   open  ftp
-            23/tcp   open  telnet
-            2222/tcp open  EtherNetIP-1
-            
-            Nmap scan report for 192.168.28.111
-            80/tcp   open  http
-            2222/tcp open  EtherNetIP-1
-            8080/tcp open  http-proxy
+                                                                                                                                                          Nmap scan report for 192.168.28.100            
+                                                                                                                                                          80/tcp   open  http GOOD
+                                                                                                                                                          2222/tcp open  EtherNetIP-1 SSH
+                                                                                                                                                          
+                                                                                                                                                          Nmap scan report for 192.168.28.105
+                                                                                                                                                          21/tcp   open  ftp GOOD
+                                                                                                                                                          23/tcp   open  telnet GOOD
+                                                                                                                                                          2222/tcp open  EtherNetIP-1 SSH
+                                                                                                                                                          
+                                                                                                                                                          Nmap scan report for 192.168.28.111
+                                                                                                                                                          80/tcp   open  http GOOD
+                                                                                                                                                          2222/tcp open  EtherNetI P-1 SSH
+                                                                                                                                                          8080/tcp open  http-proxy HTTP
+                                                                                                                                              
+                                                                                                                                                          Nmap scan report for 192.168.28.120
+                                                                                                                                                          4242/tcp open  vrml-multi-use SSH
+
 
 ##Verify ports
   proxychains nc 192.168.28.100 80
@@ -54,3 +59,76 @@ favriout site for vulnerabilites: exploit-db, google the CVE # with github.
   ssh -MS /tmp/t1 username@127.0.0.1 -p 1112
   man
 
+## Find directeries to navigate to with this scan    /usr/share/nmap/scripts                            nmap --script <filename>|<category>|<directory>
+                                                                                                        nmap --script-help "ftp-* and discovery"
+                                                                                                        nmap --script-args <args>
+                                                                                                        nmap --script-args-file <filename>
+                                                                                                        nmap --script-help <filename>|<category>|<directory>
+                                                                                                        nmap --script-trace
+  proxychains nmap --script=http-enum 192.168.28.100
+
+
+
+
+
+
+                                                                                          RECONNAISSANCE AND SCANNING PROMPT
+
+SITREP:Your team has been deployed for Operation Golden Nugget, in direct support of Gorgas forces amid the Donovian-Gorgas war. You have been tasked to collect, analyze, and process data utilizing various reconnaissance
+techniques throughout Donovian and Gorgas Cyberspace.
+
+Maintain 'low visibility' on the wire, as security products may be in place, and document your actions and results as you will be expected to provide OpNotes upon request.
+
+Intelligence believes that not all of the 192.168.28.96/27 network has the ability to communicate with the 192.168.150.224/27 network.
+                                          ----------------                                                 ------------------
+Donovian Reconnaissance and Scanning (DR&S)
+XX June 2024
+Start Time: 1300
+Duration: 4 hours
+
+Type of Operation: Cyber Intelligence, Surveillance and Reconnaissance (C-ISR)
+
+Objective:Scan target networks to gather pertinent host information.
+
+Tools/Techniques: All connections will be established through network scans or web browser. Ports in use will be dependent on target location and are subject to change. Network scanning tools/techniques are limited 
+to NSE scripts, python lxml and OSINT.
+
+Scenario Credentials: FLAG = R3C0N5t@rt0F@ct1v1ty
+
+Prior Approvals: OSINT through publicly available resources. Scrape appropriate web content that will provide operational data. Testing of found credentials. NOT approved to change routing, passwords, services, 
+destroy data, upload of tools, create accounts
+
+Scheme of Maneuver:
+>Jump Box
+->Network scan: 192.168.28.96/27
+-->Network scan:192.168.150.224/27
+
+Target Section:
+
+Network scans:
+Network: 192.168.28.96/27
+Network:192.168.150.224/27
+OSs: unknown
+Creds: student ::
+Known Ports: unknown
+Known URL: consulting.site.donovia
+Known URL: conference.site.donovia
+Action: Reconnaissance to collect intelligence and identify possible avenues of approach in the network.
+
+                                                                                                      BORGAS EXPLOIT RESEARCH PROMPT
+
+
+
+Gorgas Exploit Research (GER)
+XX DEC 2023
+Start Time: 1300
+Duration: 4 hours
+
+Type of Operation: Development
+
+Objective: Develop exploits ISO cyber operations into Donovia’s Hypersonic Glide Vehicle (HGV) defense network. The teams' objective is to gain access to HGV ground control station and when called upon have the ability
+to conduct a DOS on the perimeter.
+
+Tools/Techniques: Open source research.
+
+Scenario Credentials: FLAG = exp10it3resEARc6@c1tv17y
