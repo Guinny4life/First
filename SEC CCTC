@@ -2,9 +2,17 @@ First day, day one! Let's get this started, I can type with out looking at the k
 
 Getting on to
 ssh demo1@10.50.15.172 -L 1111:10.208.50.61:80
+                                        .42   
 127.0.0.1:1111/classinfo.html
 
 BRGA-021-M   Stack# 7  PW:TEBcv54D4iPn   Jump:10.50.16.164
 Challenges 10.50.178.176:8000
 
 mol PW:WhyrightNow
+
+favriout site for vulnerabilites: exploit-db, google the CVE # with github.
+
+
+##Control Sockets
+  ssh -MS /tmp/jump/ student@10.50.16.164        (M is multiplexing, to connect to multiple systems, S is socket created in /tmp directory)
+  
