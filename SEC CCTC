@@ -24,7 +24,7 @@ favriout site for vulnerabilites: exploit-db, google the CVE # with github.
                                                                                                                                                           .97, .100, .105, .111, .120
 ##Create Dynamic port forward
   ssh -S /tmp/jump jump -O forward -D9050
-  (Later:  ssh -S /tmp/jump jump -O cancle -D9050)
+  (Later:  ssh -S /tmp/jump jump -O cancel -D9050)
   nmap
                                                                                                                                                           Nmap scan report for 192.168.28.100            
                                                                                                                                                           80/tcp   open  http GOOD
@@ -152,7 +152,7 @@ Action: Conduct approved Web Exploitation techniques to collect intellegence.
 /images/    ## russian images
 /uploads/   ##this is the cyber swareness training and the location of its ip
 
-
+we found this site 10.100.28.55
 
 
 
