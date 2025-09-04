@@ -154,6 +154,42 @@ Action: Conduct approved Web Exploitation techniques to collect intellegence.
 
 we found this site 10.100.28.55
 
+****************************************************************************************************************************************************************************************************************************
+                          Day 3 Web explotiation SQL
+        
+POST method
+        normal statement        SELECT id FROM users WHERE name=‘JohnDoe243’   AND pass=‘pass1234’    ;       Http method post cause we submit info to server
+        injecting statement     SELECT id FROM users WHERE name=‘tom' OR 1='1’ AND pass=‘tom' OR 1='1’
+GET method  
+        soo...F12>>hit login>>click POST >>HTML&Request tab>> raw>> 127.0.0.1:1111/*******?(the coppied URL)  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
