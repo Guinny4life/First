@@ -249,8 +249,11 @@ win-ops
 Address
 10.50.141.22
 
-ps>strings.exe .\demo1_new.exe       to find the strings
+ps>strings.exe .\demo1_new.exe       to find the strings (static)
+ps>type(or file) .\demo2_new.exe
+
 run it, and give it what it wants        interact with malware, (behavioral)
+
 opne ghidra, file>>new project>>file>> inport file (the malwares)>> clcik on files imported>>analyze>>search tab>>strings>>search>>(look for key words from when ran)>>double click on where was found>> again>>right click on values to translate  >>open funtion of value
 >>          (dynamic)
 
