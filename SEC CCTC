@@ -260,9 +260,21 @@ opne ghidra, file>>new project>>file>> inport file (the malwares)>> clcik on fil
 patch instrution, rightclick, patch instruction>>export with different name to test
 
 
+                                  Scinero
+Tools/Techniques: Ghidra, IDA, and GDB.
+T1
+Hostname: web.site.donovia
+IP: 192.168.28.111       hosting binaries via port 80 at the following URI /longTermStorage. Conduct Reverse Engineering (disassemble, debug) on collected files
+OS: unknown
+Creds: comrade::StudentWebExploitPassword
+Last Known SSH Port: unknown
+PSP: Unknown
+Malware: Unknown
+Action: Extract approved binaries under directory titled "longTermStorage".
 
 
 
+python http server
 
 
 
