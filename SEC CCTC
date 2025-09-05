@@ -226,3 +226,57 @@ A: (category page url.php)? category=1 or 1=1            ##this outputs all thin
       INSERT INTO members (first_name, last_name, username, password, email, permission)                   ##this what the input expects
       VALUES ('Hacker', 'lastname', 'hacker4 ','password','email','1')#', 'pw', 'email', 3)                ##this is what the site sees, the # igones all to the right
 -certain colums may only work in certain positons
+****************************************************************************************************************************************************************************************************************************************************************************
+
+                                                                          Day 4 Reverse Engineering
+Base pointer is the start of the stack, the stack pointer is the bookmark of where we are using.
+
+                                      X86_64 Assembly - Common Instruction Pointers
+                                              MOV  move source to destination
+                                              PUSH  push source onto stack
+                                              POP  Pop top of stack to destination
+                                              INC  Increment source by 1
+                                              DEC  Decrement source by 1
+                                              ADD  Add source to destination
+                                              SUB  Subtract source from destination
+                                              CMP  Compare 2 values by subtracting them and setting the %RFLAGS register. ZeroFlag set means they are the same.
+                                              JMP  Jump to specified location
+                                              JLE  Jump if less than or equal
+                                              JE  Jump if equal
+
+
+win-ops
+Address
+10.50.141.22
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
