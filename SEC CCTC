@@ -259,31 +259,50 @@ double click on where was found>> again>>right click on values to translate  >>o
 >>          (dynamic)
 
 patch instrution, rightclick, patch instruction>>export with different name to test
+****************************************************************************************************************************************************************************
+                                                            Exploit Devepolment 
 
+Buffer Overflow Common Terms
+Heap                        Memory that can be allocated and deallocated
+Stack                       A contiguous section of memory used for passing arguments
+Registers                   Storage elements as close as possible to the central processing unit (CPU)
+Instruction Pointer (IP)    a.k.a Program Counter (PC), contains the address of next instruction to be executed
+Stack Pointer (SP)          Contains the address of the next available space on the stack
+Base Pointer (BP)           The base of the stack
+Function                    Code that is separate from the main program that is often used to replace code the repeats in order to make the program smaller and more efficient
+Shellcode                   The code that is executed once an exploit successfully takes advantage of a vulnerability
 
-                                  Scinero
-Tools/Techniques: Ghidra, IDA, and GDB.
-T1
-Hostname: web.site.donovia
-IP: 192.168.28.111       hosting binaries via port 80 at the following URI /longTermStorage. Conduct Reverse Engineering (disassemble, debug) on collected files
-OS: unknown
-Creds: comrade::StudentWebExploitPassword
-Last Known SSH Port: unknown
-PSP: Unknown
-Malware: Unknown
-Action: Extract approved binaries under directory titled "longTermStorage".
+Buffer Overflow Defenses
+    Non executable (NX) stack
+    Address Space Layout Randomization (ASLR)
+    Data Execution Prevention (DEP)
+    Stack Canaries
+    Position Independent Executable (PIE)
 
+                                          OPNOTES
+##Static Analysis
+>strings func | head
+>file func
 
+##Behavioral Analysis
+>chmod u+x func
+>./fun
 
-python http server
+##Dynamic analysis (fuzzing) 
+>./func $(echo "123456789") ##passes arguments
+>./func <<<$(echo "123456789") ## <<< is user input, if it skips program, it means its waiting for user input, 
+>./func <<<$(echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA") ## if get a segmentation fault, we can exploit
 
-
-
-
-
-
-
-
+#Disassembly
+>gdb ./func                                                                                                                    linex.py
+  >shell ## tkes us back to shell environment, quit gets out of gdb                                                                      #!/usr/bin/env python
+  >info functions                                                                                                                        offset = "A" * 100
+  >run ## or start                                                                                                                       print(offset)
+  >disass main ## or pdisass other fucntions "getuserinput"
+  >pdisass getuserinput "if somthing is in red, google and read about possible vulnerabilities from said functions"
+  >run <<<$(python linex.py) ## this inputs the script into what the prompt is asking for
+##go to https://wiremask.eu/tools/buffer-overflow-pattern-generator/ 
+## copy pattern into offset, enter, copy EIP value into wiremask to find offset value
 
 
 
