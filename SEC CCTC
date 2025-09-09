@@ -308,7 +308,7 @@ Buffer Overflow Defenses
 ## add eip ="BBB" and print (offset+eip) to script, run it to confirm eip is "BBB"                                                      eip = "BBBB"
 
 ## Set GDB environment and find jmp esp addresses
-  >shell
+  >shell (THIS IS DONE FOR THE MACHINE YOU ARE ON)
   >env - gdb ./func
     show env
     unset env COLUMNS
