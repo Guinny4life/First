@@ -297,14 +297,14 @@ Buffer Overflow Defenses
 >gdb ./func                                                                                                                    linex.py
   >shell ## tkes us back to shell environment, quit gets out of gdb                                                                      #!/usr/bin/env python
   >info functions                                                                                                                        offset = "A" * 100
-  >run ## or start                                                                                                                       print(offset)
-  >disass main ## or pdisass other fucntions "getuserinput"
+  >run ## or start                                                                                                                       
+  >disass main ## or pdisass other fucntions "getuserinput"                                                                              print(offset)
   >pdisass getuserinput "if somthing is in red, google and read about possible vulnerabilities from said functions"
   >run <<<$(python linex.py) ## this inputs the script into what the prompt is asking for
 ##go to https://wiremask.eu/tools/buffer-overflow-pattern-generator/       give it a 100
 ## copy pattern into offset, enter, copy EIP value into wiremask to find offset value
 ## change offset = "A" * 100 in script to the offset value
-## add eip ="BBB" and print (offset+eip) to script, run it to confirm eip is "BBB"
+## add eip ="BBB" and print (offset+eip) to script, run it to confirm eip is "BBB"                                                      eip = "BBB"
 
 
 
