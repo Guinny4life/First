@@ -364,12 +364,12 @@ on script                                                   buf += "A * 2003 #wh
 BACK TO POWERSHELL
 
 
-        THE POWERSHELL NOTES
+                        THE POWERSHELL NOTES
         #static
         strings .\vulnserver.exe | select -First 10
         clear
         
-        #behavioral
+        #behavioralhisot
         Get-Process | findstr /i vuln 
         netstat -antop tcp | findstr 4836   #insert Id found 
         ##run as intended, 
