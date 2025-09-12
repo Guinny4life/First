@@ -516,4 +516,37 @@ msfvenom to create dll
 #Exexutable replacement 
   rename putty? then rename somthing else to putty so that it runs instead of what was scheduled to run.
 
+                                      OPNOTES
+                    ssh -MS /tmp/jump student@10.50.16.164                                                                      >Jump Box
+
+                    ssh -S /tmp/jump jump -O forward -L 1111:192.168.28.105:2222                                                ->Pivot: 192.168.28.105     Port 2222
+                    ssh -MS /tmp/t1 comrade@127.0.0.1 -p 1111
+                    
+                    ssh -S /tmp/t1 t1 -O forward -L 1112:192.168.28.5:3389                                                       -->T1: 192.168.28.5        rdp 3389
+                    xfreerdp /u:comrade /v:localhost:1112 /dynamic-resolution +clipboard                                                                    to rdp from linux
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
