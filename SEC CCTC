@@ -475,11 +475,34 @@ Action: Gain access; survey host and map Donovian internal Cyberspace.
 192.168.28.97
 192.168.150.253
 
+***********************************************************************************************************************************************************
+                                                      Privilege Escalation, Persistence & Covering Your Tracks
+                                                                                Windows
+DLL hijacking, replace dll already there. HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs
+DEMO: Checking UAC Settings
+  reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+DEMO: Finding vulnerable Scheduled Tasks
+  schtasks /query /fo LIST /v
 
+Places to look
+  Registry
+    the HKLM & HKCU  and run&runonce
+  Task scheduler
+  Services
+    if empty description, then malicious
 
+Finding vulnerable services
+  wmic service list full
+  sc query
 
+DEMO: Audit Logging
+  Show all audit category settings
+    auditpol /get /category:*
+  What does the below command show? need escalated privileges
+    auditpol /get /category:* | findstr /i "success failure"
 
-
+# view events
+  event viewer >> create custome view
 
 
 
