@@ -534,10 +534,11 @@ To run a command as admin using the Memory status vulnerability
 
 *******************************************************************************************************************************************************************************************************
                                                        Privilege Escalation, Persistence & Covering Your Tracks
+                                                                    
                                                                                 Linux
 Sudo config file /etc/sudoers
 
-GTFO Bins: https://gtfobins.github.io/gtfobins/tcpdump/    comands we can still use when in a restricte shell
+GTFO Bins: https://gtfobins.github.io/gtfobins/tcpdump/                    comands we can still use when in a restricte shell
 
 logs in /var/log
 GREP (Remove)
@@ -560,6 +561,62 @@ Reading Rsyslog
 Utilizes severity (priority) and facility levels
 <facility>.<priority>
 
+                                          OPNOTES
+List sudo permissions, open shell
+  sudo -l >> see what we can get from GTFObins >> use it >> then we get a shell >> id >> bash
+Use effective SUID/GUID permissions
+  find / -type f -perm /4000 -ls 2>/dev/null       ## look for SUID Files      search GTFO bins for somthing non standard we can use
+  find / -type f -perm /2000 -ls 2>/dev/null       ## look for GUID Files
+  find / -type f -perm /6000 -ls 2>/dev/null       ## both
+. In PATH
+  echo $PATH >> PATH=.:$PATH
+
+                                                                    Sinerio 
+Objective: Maneuver into the Donovian internal network, gain privileged access to discovered Linux hosts.
+
+Tools/Techniques: SSH masquerade into internal network with provided credentials. Ports in use will be dependent on target location and are subject to change. Linux techniques to gain privileged access and persist are limited to host misconfigurations, open suid/sgid, weak permissions, and path. Network scanning tools/technique usage is at the discretion of student.
+
+Prior Approvals: Privilege escalation, persistence, and restarting of services through host reboot. Host survey and log sanitation utilizing native command shells, which shell is at discretion of student. NOT authorized is uploading of tools or altering account information.
+
+Scheme of Maneuver:
+>Jump Box
+->Pivot:192.168.28.105
+--->T1: 192.168.28.27
+--->T2: 192.168.28.12
+
+Target Section:
+
+Pivot
+Hostname: Donovian-Terminal
+IP: 192.168.28.105
+OS: Ubuntu 18.04
+Creds: comrade :: StudentReconPassword
+Last Known SSH Port: 2222
+PSP: rkhunter
+Malware: none
+Action: Perform SSH masquerade and redirect to the next target. No survey required, cohabitation with known PSP approved.
+
+T1
+Hostname: unknown
+IP: 192.168.28.27 22
+OS: Linux ver: Unknown
+Creds: comrade :: StudentPrivPassword
+Last Known Ports: unknown
+PSP: unknown
+Malware: unknown
+Action: Test supplied credentials, if possible gain access to host. Conduct host survey and gain privileged access.
+
+T2
+Hostname: unknown
+IP: 192.168.28.12 22
+OS: Linux ver: Unknown
+Creds: comrade :: StudentPrivPassword
+Last Known Ports: unknown
+PSP: unknown
+Malware: unknown
+Action: Test supplied credentials, if possible gain access to host. Conduct host survey and gain privileged access.
+
+1st flag 07F4 or 8054
 
 
 
