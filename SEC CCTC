@@ -582,7 +582,16 @@ xfreerdp?
   inspect>> network>> post>> request>> raw>> put this into URL x.x.x.x/login.php?<paste> >> view page source
 
 #SQL GET
-  Find vulnerable field on url, x.x.x.x:xxxx/imiomdemo.php?Selection=2 or 1=1, how many columns?, x.x.x.x:xxxx/imiomdemo.php?Selection=2 UNION SELECT 1,2,3, Golden statement, craft queries 
+  Find vulnerable field on url, x.x.x.x:xxxx/imiomdemo.php?Selection=2 or 1=1, how many columns?, x.x.x.x:xxxx/imiomdemo.php?Selection=2 UNION SELECT 1,2,3, Golden statement, craft queries, x.x.x.x:xxxx/imiomdemo.php?Selection=2 UNION SELECT @@version,2,3, 
+
+#Find a fucntion
+  scp program to linops, gdp <file>, run,  pdisass main
+
+#Linus priv escalation
+
+#Windows
+file explorer, view hidden items
+task schedueler, regedit, services (empt comments), event viewer
 
 
 
