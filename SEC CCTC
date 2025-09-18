@@ -564,6 +564,9 @@ xfreerdp?
                                               SOCKETS REVIEW
 #Control Sockets
   ssh -MS /tmp/demo demo1@10.50.15.172        master socket saved in that file
+#Nexthop
+  ssh-MS /tmp/t1 user@127.0.0.1 -p 1111 
+  ssh-S /tmp/t1 t1 -O forward -L 3333:x.x.x.x:80
 #Dynamic port forward
   ssh -S /tmp/demo demo -O forward -D 9050
 #Local port forward
