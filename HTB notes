@@ -1,1 +1,22 @@
-In PwnBox SecLists repo available under /opt/useful/SecLists (common words for fuzzing)
+In PwnBox SecLists repo available under /opt/useful/SecLists/Discovery/Web-Content/directory-list-... (common words for fuzzing)
+
+PAGE FUZZING 
+|ffuf -s -w /opt/useful/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://83.136.255.159:46527/FUZZ
+|     (silent)                     (the text reposotory)                       (place holder)           All to find web pages
+|ffuf -w /opt/useful/seclists/Discovery/Web-Content/web-extensions.txt:FUZZ -u http://SERVER_IP:PORT/blog/indexFUZZ
+|                                                                        All to find the extensions of pages found previously 
+|ffuf -s -w /opt/useful/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://83.136.249.233:49031/blog/FUZZ.php
+                                                                All to find the pages inside of & extension of/blog/FUZZ.php
+RECURSIVE FUZZING
+|ffuf -s -w /opt/useful/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u 
+http://83.136.254.84:56184/FUZZ -recursion -recursion-depth 2 -e .php -v
+|                     (recrursive scan)(directories deep)(spesify ext)(view output URLs)
+SUB-DOMAIN FUZZING
+|ffuf -s -w /opt/useful/seclists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u https://FUZZ.inlanefreight.com/ 
+|                                                                                    (look for subdomains)
+VHOST FUZZING
+|ffuf -s -w /opt/useful/seclists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ 
+-u http://academy.htb:48721/ -H 'Host: FUZZ.academy.htb'
+|                    (specify a header) All to scan for VHosts with out manually adding an entire wordlist to /etc/host, we are fuzzing http headers, the host.
+FILTERING RESULTS
+|
