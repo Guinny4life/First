@@ -1,5 +1,5 @@
 In PwnBox SecLists repo available under /opt/useful/SecLists/Discovery/Web-Content/directory-list-... (common words for fuzzing)
-
+* Add a ip to /etc/hosts   sudo sh -c 'echo "SERVER_IP  academy.htb" >> /etc/hosts'
 PAGE FUZZING 
 |ffuf -s -w /opt/useful/seclists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://83.136.255.159:46527/FUZZ
 |     (silent)                     (the text reposotory)                       (place holder)           All to find web pages
