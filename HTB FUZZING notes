@@ -32,3 +32,6 @@ PARAMETER FUZZING -POST
 |curl http://admin.academy.htb:PORT/admin/admin.php -X POST -d 'id=key' -H 'Content-Type: application/x-www-form-urlencoded'
                                                                     ^(got from the line above)
 VALUE FUZZING
+
+NOTES:
+|websites usually have an 'index' as a first subdirectory/path 
